@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.you.dao.ClientDao">
+    <insert id="addClient">
+        insert into C_CLIENT  values (seq_client.nextval,#{c_name},#{c_pass})
+    </insert>
+
+    <select id="getCnameAndCPass" resultType="com.you.model.Client">
+        select C_NAME,C_PASS from C_CLIENT where C_NAME=#{c_name} and c_pass=#{c_pass}
+    </select>
+    <select id="queryClientName" resultType="java.lang.Boolean">
+        select C_NAME from C_CLIENT
+    </select>
+</mapper>

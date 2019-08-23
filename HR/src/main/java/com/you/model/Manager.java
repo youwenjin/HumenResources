@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Manager implements Serializable {
     private Integer m_id;
-    private  String m_name;
+    private  String m_name;//登录帐号
     private String m_pass;
 
     public Integer getM_id() {

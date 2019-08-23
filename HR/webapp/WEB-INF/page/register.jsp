@@ -1,9 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jixiegeming
-  Date: 2019/8/22
-  Time: 14:53
+  Date: 2019/8/23
+  Time: 14:58
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,19 +13,13 @@
 <html>
 <head>
     <base href="<%=basePath%>"/>
-    <title>主页</title>
-    <script src="js/jquery.js"></script>
+    <title>注册界面</title>
 </head>
 <body>
-<c:if test="${!empty register}">
-    <script>
-        alert("注册成功")
-    </script>
-</c:if>
-
-    <span><a href="register">游客注册</a></span>
-    <span><a href="login">登录</a></span>
-    <span><a></a></span>
-
+<form action="register1" method="post">
+   用户名： <input type="text" name="name"><br>
+    密码：<input type="text" name="pass"><br>
+    <input type="submit" value="注册">
+</form>
 </body>
 </html>    

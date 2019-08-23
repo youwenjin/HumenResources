@@ -5,9 +5,9 @@ import java.util.Date;
 
 public class Employee implements Serializable {//员工表
     private Integer e_id;
-    private String e_account;//账号
+    private String e_account;//登录号
     private String e_pass;
-    private String e_name;
+    private String e_name;//员工姓名
     private String e_sex;
     private String e_address;
     private String e_phone;
