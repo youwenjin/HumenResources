@@ -13,9 +13,8 @@ public class ClientServiceImpl implements ClientService {
     private ClientDao clientDao;
 
     public boolean addClient(Client client) {
-        if(clientDao.queryClientName(client)){
-            return false;
-        }
+
+
         if (client!=null){
            return clientDao.addClient(client);
         }

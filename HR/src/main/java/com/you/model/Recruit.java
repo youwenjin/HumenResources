@@ -1,13 +1,16 @@
 package com.you.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
-
-public class Recruit implements Serializable {//招聘
-    private Integer i_id;
+//招聘
+public class Recruit implements Serializable {
+    private Integer t_id;
     private int p_id;//职位id
     private String t_title;//主题
     private String t_introduaction;//职位描述
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date t_publish_time;//发布时间
     private String t_address;//工作地址
     private int t_salary;
@@ -15,12 +18,12 @@ public class Recruit implements Serializable {//招聘
     private int t_draft;//是否存为草稿
     private int t_publish;//是否发布
 
-    public Integer getI_id() {
-        return i_id;
+    public Integer getT_id() {
+        return t_id;
     }
 
-    public void setI_id(Integer i_id) {
-        this.i_id = i_id;
+    public void setT_id(Integer t_id) {
+        this.t_id = t_id;
     }
 
     public int getP_id() {
@@ -98,7 +101,7 @@ public class Recruit implements Serializable {//招聘
     @Override
     public String toString() {
         return "Recruit{" +
-                "i_id=" + i_id +
+                "t_id=" + t_id +
                 ", p_id=" + p_id +
                 ", t_title='" + t_title + '\'' +
                 ", t_introduaction='" + t_introduaction + '\'' +

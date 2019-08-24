@@ -14,11 +14,21 @@
 <head>
     <base href="<%=basePath%>"/>
     <title>注册界面</title>
+    <script type="text/javascript"></script>
+    <script>
+        function check_password() {
+            if ($("#pass").val() != $("#pass1").val()){
+                alert("请保证两次输入密码的一致性！");
+                $("#pass1").focus();
+            }
+        }
+    </script>
 </head>
 <body>
 <form action="register1" method="post">
-   用户名： <input type="text" name="name"><br>
-    密码：<input type="text" name="pass"><br>
+    请输入姓名：<input type="text" name="name"><br>
+    请输入密码：<input  type="password" name="pass"><br>
+    请确认密码：<input  type="password" name="pass1"><br>
     <input type="submit" value="注册">
 </form>
 </body>

@@ -16,6 +16,6 @@
         delete from R_RESUME where R_ID=#{id}
     </delete>
     <select id="findResume" resultType="com.you.model.Resume">
-
+        select * from R_RESUME
     </select>
 </mapper>

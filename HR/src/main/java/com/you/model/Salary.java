@@ -1,11 +1,14 @@
 package com.you.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
-
+//工资表
 public class Salary implements Serializable {
     private Integer s_id;
     private int e_id;//员工id
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date s_date;//结算日期
     private int s_performance;//绩效奖金
     private int s_extra;//加班费用

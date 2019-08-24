@@ -10,8 +10,9 @@
     <select id="getCnameAndCPass" resultType="com.you.model.Client">
         select C_NAME,C_PASS from C_CLIENT where C_NAME=#{c_name} and C_PASS=#{c_pass}
     </select>
-
-    <select id="queryClientName" resultType="java.lang.Boolean">
-        select C_NAME from C_CLIENT
+    <select id="queryClientName" resultType="com.you.model.Client">
+        select * from C_CLIENT
     </select>
+
+
 </mapper>

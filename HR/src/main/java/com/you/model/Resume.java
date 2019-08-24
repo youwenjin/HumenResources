@@ -1,17 +1,20 @@
 package com.you.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
-
-public class Resume implements Serializable {//简历
+//简历
+public class Resume implements Serializable {
     private Integer r_id;
     private int c_id;//游客id
     private String r_name;
     private String r_sex;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date r_birth;
     private String r_address;
     private String r_school;//毕业学校
-    private String r_education;//入学时间
+    private String r_education;//学历
     private String r_major;//所学专业
     private int r_salary;//期望薪水
     private String r_exprience;//个人经历

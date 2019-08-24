@@ -6,20 +6,24 @@
     </insert>
 
     <select id="getRecById" resultType="com.you.model.Recruit">
-           select * from R_RECRUIT where R_ID=#{r_id}
+           select * from R_RECRUIT where T_ID=#{t_id}
     </select>
 
     <select id="getRecs" resultType="com.you.model.Recruit">
-        SELECT * FROM R_RESUME
+        SELECT T_ID,P_ID,T_TITLE,T_INTRODUACTION,T_PUBLISH_TIME,T_ADDRESS,T_SALARY,E_ID,T_DRAFT,T_PUBLISH FROM T_RECRUIT
     </select>
 
     <select id="getRecruitByPage" resultType="com.you.model.Recruit">
-        SELECT *
+        /*SELECT *
         FROM (SELECT A.T_ID,A.P_ID,A.T_TITLE,A.T_INTRODUACTION,A.T_PUBLISH_TIME,
         A.T_ADDRESS,A.T_SALARY,A.E_ID,A.T_DRAFT,A.T_PUBLISH  ROWNUM RN
-        FROM (SELECT * FROM R_RESUME) A
+        FROM (SELECT * FROM T_RECRUIT) A
         WHERE ROWNUM <![CDATA[<]]>=#{e_end})
-        WHERE RN >= e_start
+        WHERE RN >= e_start*/
+        select A.T_ID,A.P_ID,A.T_TITLE,A.T_INTRODUACTION,A.T_PUBLISH_TIME, A.T_ADDRESS,A.T_SALARY,A.E_ID,A.T_DRAFT,A.T_PUBLISH,ROWNUM RN
+         from (select T_ID,P_ID,T_TITLE,T_INTRODUACTION,T_PUBLISH_TIME,T_ADDRESS,T_SALARY,E_ID,T_DRAFT,T_PUBLISH from T_RECRUIT) A
+        where ROWNUM<![CDATA[<]]>=#{e_end})
+        where RN>=#{e_start}
     </select>
 
     <select id="getTotalRows" resultType="java.lang.Integer">

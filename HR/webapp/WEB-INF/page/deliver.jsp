@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: jixiegeming
-  Date: 2019/8/23
-  Time: 15:41
+  Date: 2019/8/24
+  Time: 16:16
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,14 +13,10 @@
 <html>
 <head>
     <base href="<%=basePath%>"/>
-    <title>欢迎登录</title>
+    <title>投递记录</title>
 </head>
 <body>
-<form action="login1" method="post">
-    账号：<input type="text" name="name"><br>
-    密码：<input type="password" name="pass"><br>
-    <input type="submit" value="登录">
-</form>
-
+简历
+历史记录
 </body>
 </html>    

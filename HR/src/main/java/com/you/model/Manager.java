@@ -1,7 +1,7 @@
 package com.you.model;
 
 import java.io.Serializable;
-
+//管理员
 public class Manager implements Serializable {
     private Integer m_id;
     private  String m_name;//登录帐号

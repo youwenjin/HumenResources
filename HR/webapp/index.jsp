@@ -5,6 +5,7 @@
 <%@ page import="org.springframework.context.ApplicationContext" %>
 <%@ page import="org.springframework.context.support.ClassPathXmlApplicationContext" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: jixiegeming
@@ -30,24 +31,30 @@
         alert("注册成功")
     </script>
 </c:if>
-
+<span><a href="register">游客注册</a></span>
+<span><a href="login">登录</a></span>
     <%
         ApplicationContext context=new ClassPathXmlApplicationContext("bean.xml");
         RecruitService recruitService= (RecruitService) context.getBean("recruitServiceImpl");
-
-        Page<Recruit> recruitPage= (Page<Recruit>) request.getAttribute("recruitPage");
+        List<Recruit> recs = recruitService.getRecs();
+       /* Page<Recruit> recruitPage= (Page<Recruit>) request.getAttribute("recruitPage");
+        System.out.println("====================>"+recruitPage);
         if(recruitPage==null){
             recruitPage=recruitService.getRecruitByPage(1);
+
         }
         if(recruitPage.getList()!=null&&recruitPage.getList().size()!=0){
-            for (Recruit rec : recruitPage.getList()) {
+            for (Recruit rec : recruitPage.getList()) {*/
+       if(recs!=null&& recs.size()!=0){
+           for (Recruit rec :recs) {
+
+
     %>
 
 
 
 
-    <span><a href="register">游客注册</a></span>
-    <span><a href="login">登录</a></span>
+
 <table>
     <tr>
         <td>职位</td>
@@ -57,30 +64,37 @@
         <td>地址</td>
         <td>薪水</td>
         <td>联系人</td>
+        <td>投递简历</td>
     </tr>
     <tr>
         <td><%=rec.getP_id()%></td>
         <td><%=rec.getT_title()%></td>
         <td><%=rec.getT_introduaction()%></td>
-        <td><%=rec.getT_publish_time()%></td>
+        <td><%= rec.getT_publish_time() %></td>
         <td><%=rec.getT_address()%></td>
         <td><%=rec.getT_salary()%></td>
         <td><%=rec.getE_id()%></td>
+        <td>
+            <form action="deliver" method="post">
+                <input type="hidden" name="tid" value="<%=rec.getT_id()%>">
+                <input type="submit" value="投递">
+            </form>
+        </td>
     </tr>
     <%
         }
     }else {
     %>
-    <tr><td colspan="7">暂无招聘信息</td></tr>
+    <tr><td colspan="8">暂无招聘信息</td></tr>
     <%
         }
     %>
 </table>
 
-<div class="div4">
+<%--<div class="div4">
     <span>共 <%=recruitPage.getTotalPage()%> 页</span>
     <span>当前在第 <%=recruitPage.getPageNo()%> 页</span>
-    <span><a href="recruit?pageNo=1">首页</a></span><%--相当于 <from method="get"  action="good" > name属性=pageNo--%>
+    <span><a href="recruit?pageNo=1">首页</a></span>&lt;%&ndash;相当于 <from method="get"  action="good" > name属性=pageNo&ndash;%&gt;
     <span><a href="recruit?pageNo=<%=recruitPage.getPrevPage()%>">上一页</a></span>
     <span><a href="recruit?pageNo=<%=recruitPage.getNextPage()%>">下一页</a></span>
     <span><a href="recruit?pageNo=<%=recruitPage.getTotalPage()%>">尾页</a></span>
@@ -90,6 +104,6 @@
                                max=<%= recruitPage.getTotalPage()%>>
         <input id="a" type="submit" value="跳转"  >
     </form>
-</div>
+</div>--%>
 </body>
 </html>    

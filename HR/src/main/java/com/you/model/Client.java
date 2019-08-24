@@ -1,8 +1,8 @@
 package com.you.model;
 
 import java.io.Serializable;
-
-public class Client implements Serializable {//游客
+//游客
+public class Client implements Serializable {
     private Integer c_id;
     private String c_name;//登录账号
     private String c_pass;

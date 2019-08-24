@@ -2,9 +2,7 @@ package com.you.model;
 
 import java.util.List;
 
-/**
- * Created by 11929 on 2019/7/19.
- */
+
 public class Page<T> {
     private int pageNo;//当前页数
     private int totalRows;//总记录数

@@ -30,4 +30,10 @@ public class RecruitController {
 
         return "../../index";
     }
+    @RequestMapping("deliver")
+    public  String deliver(HttpServletRequest request )throws Exception{
+         int tid=Integer.parseInt(request.getParameter("tid"));
+        Recruit recById = recruitService.getRecById(tid);
+        return "deliver";
+    }
 }

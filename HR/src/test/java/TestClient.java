@@ -34,8 +34,20 @@ public class TestClient {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         ClientDao clientDao=sqlSession.getMapper(ClientDao.class);
         Client client=new Client();
+        client.setC_name("you");
+        client.setC_pass("111");
+        System.out.println(clientDao.addClient(client));
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    @Test
+    public void testadd(){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        ClientDao clientDao=sqlSession.getMapper(ClientDao.class);
+        Client client=new Client();
         client.setC_name("李四");
         client.setC_pass("lisi");
+        clientDao.queryClientName(client);
         System.out.println(clientDao.addClient(client));
         sqlSession.commit();
         sqlSession.close();

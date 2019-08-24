@@ -1,12 +1,16 @@
 package com.you.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 //考勤表
 public class Attendence implements Serializable {
     private Integer k_id;
     private  int e_id;//员工
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date k_start_time;//上班打卡
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")//精确至分秒
     private Date k_end_time;//下班打卡
 
     public Integer getK_id() {
