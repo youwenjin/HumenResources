@@ -12,4 +12,17 @@
     <select id="getRecs" resultType="com.you.model.Recruit">
         SELECT * FROM R_RESUME
     </select>
+
+    <select id="getRecruitByPage" resultType="com.you.model.Recruit">
+        SELECT *
+        FROM (SELECT A.T_ID,A.P_ID,A.T_TITLE,A.T_INTRODUACTION,A.T_PUBLISH_TIME,
+        A.T_ADDRESS,A.T_SALARY,A.E_ID,A.T_DRAFT,A.T_PUBLISH  ROWNUM RN
+        FROM (SELECT * FROM R_RESUME) A
+        WHERE ROWNUM <![CDATA[<]]>=#{e_end})
+        WHERE RN >= e_start
+    </select>
+
+    <select id="getTotalRows" resultType="java.lang.Integer">
+        select count(*) from R_RESUME where T_PUBLISH=#{t_publish}
+    </select>
 </mapper>

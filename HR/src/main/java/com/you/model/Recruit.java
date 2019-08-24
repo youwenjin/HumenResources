@@ -5,13 +5,13 @@ import java.util.Date;
 
 public class Recruit implements Serializable {//招聘
     private Integer i_id;
-    private int p_id;
+    private int p_id;//职位id
     private String t_title;//主题
     private String t_introduaction;//职位描述
     private Date t_publish_time;//发布时间
     private String t_address;//工作地址
     private int t_salary;
-    private int e_id;
+    private int e_id;//员工id
     private int t_draft;//是否存为草稿
     private int t_publish;//是否发布
 

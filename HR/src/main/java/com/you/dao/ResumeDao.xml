@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.you.dao.ResumeDao">
+    <insert id="addResume">
+         insert into R_RESUME values (SEQ_RESUME.nextval,#{r_id},#{r_name},#{r_sex},#{r_birth},#{r_address},#{r_school},#{r_education},
+        #{r_major},#{r_salary},#{r_exprience})
+    </insert>
+
+    <update id="updateResume">
+        update R_RESUME set C_ID=#{c_id},R_NAME=#{r_name},R_SEX=#{r_sex},R_BIRTH=#{r_birth},
+        R_ADDRESS=#{r_address},R_SCHOOL=#{r_school},R_EDUCATION=#{r_education},
+        R_MAJOR=#{r_major},R_SALARY=#{r_salary},R_EXPRIENCE=#{r_exprience}
+        WHERE R_ID=#{r_id}
+    </update>
+    <delete id="deleteResume">
+        delete from R_RESUME where R_ID=#{id}
+    </delete>
+    <select id="findResume" resultType="com.you.model.Resume">
+
+    </select>
+</mapper>

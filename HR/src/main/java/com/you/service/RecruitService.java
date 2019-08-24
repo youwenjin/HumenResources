@@ -1,13 +1,13 @@
-package com.you.dao;
+package com.you.service;
 
+import com.you.model.Page;
 import com.you.model.Recruit;
 
 import java.util.List;
 
-public interface RecruitDao {
+public interface RecruitService {//招聘
     boolean addRecruit(Recruit recruit);
     Recruit getRecById(int id);
     List<Recruit> getRecs();
-    List<Recruit> getRecruitByPage( int e_start,int e_end);
-    int getTotalRows();
+    Page<Recruit> getRecruitByPage(int pageNo);//分页
 }
